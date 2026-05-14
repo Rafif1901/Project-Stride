@@ -2,6 +2,7 @@ import NavigationBar from "./components/navigationbar";
 import Hero from "./components/Hero";
 import AboutUs from "./components/AboutUs";
 import Sponsors from "./components/Sponsors";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <Sponsors />
+      <Footer />
     </div>
   );
 }

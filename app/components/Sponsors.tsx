@@ -1,4 +1,14 @@
-const sponsors = Array(10).fill(null);
+import Image from "next/image";
+
+const sponsors = [
+    { src: "/logo-ime-black.png", alt: "IME Logo" },
+    { src: "/netlab_logo.svg", alt: "Netlab Logo" },
+    { src: "/strava.svg", alt: "Strava Logo" },
+    { src: "/on-logo.png", alt: "ON Logo" },
+    { src: "/heng.jpg", alt: "heng" },
+    { src: "/ratgar.jpg", alt: "Ratgar" },
+    { src: "/ingy.jpg", alt: "INgy" },
+];
 
 export default function SponsorsCarousel() {
     return (
@@ -17,21 +27,29 @@ export default function SponsorsCarousel() {
 
                     <div className="flex animate-scroll">
 
-                        <div className="flex items-center gap-16 shrink-0 px-8">
-                            {sponsors.map((_, index) => (
-                                <div
-                                    key={`a-${index}`}
-                                    className="w-24 h-24 bg-stride-muted/30 border border-stride-muted/20 rounded-lg shrink-0"
-                                />
+                        <div className="flex items-center gap-8 shrink-0 px-10">
+                            {sponsors.map((sponsor, index) => (
+                                <div key={`a-${index}`} className="w-40 h-24 relative shrink-0">
+                                    <Image
+                                        src={sponsor.src}
+                                        alt={sponsor.alt}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
                             ))}
                         </div>
 
-                        <div className="flex items-center gap-16 shrink-0 px-8">
-                            {sponsors.map((_, index) => (
-                                <div
-                                    key={`b-${index}`}
-                                    className="w-24 h-24 bg-stride-muted/30 border border-stride-muted/20 rounded-lg shrink-0"
-                                />
+                        <div className="flex items-center gap-8 shrink-0 px-10">
+                            {sponsors.map((sponsor, index) => (
+                                <div key={`b-${index}`} className="w-40 h-24 relative shrink-0">
+                                    <Image
+                                        src={sponsor.src}
+                                        alt={sponsor.alt}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
                             ))}
                         </div>
 
