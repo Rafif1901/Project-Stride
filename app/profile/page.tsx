@@ -19,7 +19,7 @@ export default function ProfilePage() {
             {/* pfp */}
             <div className="relative w-32 h-32 rounded-full border-4 border-[#242E49] bg-[#181A2F] overflow-hidden flex-shrink-0 shadow-lg">
               <Image
-                src="/user.png"
+                src="/user.webp"
                 alt="Profile Picture"
                 fill
                 sizes="128px"
