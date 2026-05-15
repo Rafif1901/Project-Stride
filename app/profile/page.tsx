@@ -4,19 +4,19 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen pt-32 pb-12 px-6 bg-[#181A2F] text-white flex justify-center font-sans">
       
-      {/* Main Card Container */}
+      {/* main card container */}
       <div className="w-full max-w-5xl bg-[#242E49] rounded-2xl overflow-hidden shadow-2xl border border-[#37415C]">
         
-        {/* Top Banner (Gradasi Merah ke Maroon) */}
+        {/* top banner gradient merah ke maroon */}
         <div className="h-48 bg-gradient-to-r from-[#B4182D] to-[#54162B]"></div>
 
-        {/* Profile Content Section */}
+        {/* profile content section */}
         <div className="px-8 sm:px-12 pb-12 relative">
           
-          {/* Avatar Container */}
+          {/* avatar container */}
           <div className="flex flex-col sm:flex-row sm:items-end -mt-16 mb-8 gap-4">
             
-            {/* Profile Picture */}
+            {/* pfp */}
             <div className="relative w-32 h-32 rounded-full border-4 border-[#242E49] bg-[#181A2F] overflow-hidden flex-shrink-0 shadow-lg">
               <Image
                 src="/user.png"
@@ -35,7 +35,7 @@ export default function ProfilePage() {
             <p className="text-[#FDA481] font-medium mt-1">Skibidi@emailhere.com</p>
           </div>
 
-          {/* Form / Credentials Grid */}
+          {/* form and credentials grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* Full Name placeholder */}
