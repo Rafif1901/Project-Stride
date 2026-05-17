@@ -33,7 +33,13 @@ Clone this repository
 git clone https://github.com/Rafif1901/Project-Stride.git
 ```
 ## Frontend
-.....
+- Ensure You’re on the right folder
+- Run npm install to install all dependencies
+- To test the installation result run
+  ```
+   npm run dev
+  ```
+
 
 ## Backend
 
