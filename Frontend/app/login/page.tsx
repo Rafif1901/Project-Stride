@@ -29,12 +29,19 @@ export default function LoginPage() {
             const data = await res.json();
 
             if (res.ok && data.success) {
-                const token = data.token || data.payload?.token || data.payload;
+                const token = data.payload?.token;
+                const role = data.payload?.user?.role || "user";
 
                 if (token) {
                     localStorage.setItem("token", token);
-                    alert("Login Berhasil! Selamat datang admin.");
-                    router.push("/admin");
+
+                    if (role === "admin") {
+                        alert("Login Berhasil! Selamat datang Admin Stride.");
+                        router.push("/admin");
+                    } else {
+                        alert("Login Berhasil! Selamat datang di Stride Official Store.");
+                        router.push("/products");
+                    }
                 } else {
                     setError("Login sukses, tetapi token gagal diverifikasi oleh sistem.");
                 }
@@ -51,7 +58,6 @@ export default function LoginPage() {
 
     return (
         <div className="flex min-h-screen">
-
             {/* Left: Image */}
             <div className="hidden md:flex w-2/5 relative">
                 <Image
@@ -83,7 +89,6 @@ export default function LoginPage() {
             {/* Right: Form */}
             <div className="w-full md:w-3/5 bg-stride-bg flex items-center justify-center px-8 py-16 pt-32">
                 <div className="w-full max-w-md flex flex-col gap-8">
-
                     <div className="flex flex-col gap-2">
                         <h1 className="text-stride-base text-3xl font-extrabold tracking-tight">
                             Welcome back.
@@ -94,7 +99,6 @@ export default function LoginPage() {
                     </div>
 
                     <form onSubmit={handleLogin} className="flex flex-col gap-5">
-
                         {error && (
                             <div className="p-3 bg-red-100 border border-red-200 text-red-700 font-bold text-xs rounded-lg uppercase tracking-wider">
                                 ⚠️ {error}
@@ -136,7 +140,6 @@ export default function LoginPage() {
                         >
                             {isLoading ? "Logging In..." : "Log In"}
                         </button>
-
                     </form>
 
                     <div className="flex items-center gap-4">
@@ -151,10 +154,8 @@ export default function LoginPage() {
                             Register here
                         </Link>
                     </p>
-
                 </div>
             </div>
-
         </div>
     );
 }

@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import AdminProducts from "./components/AdminProducts";
-import AdminEvents from "./components/AdminEvents.tsx";
-import AdminOrders from "./components/AdminOrders";
+import AdminEvents from "./components/AdminEvents";
 
 export default function GlobalAdminPage() {
     const [activeTab, setActiveTab] = useState("products");
@@ -32,19 +31,12 @@ export default function GlobalAdminPage() {
                         >
                             Event Management (Tracks)
                         </button>
-                        <button
-                            onClick={() => setActiveTab("orders")}
-                            className={`pb-2 px-2 font-bold text-sm tracking-wide transition-all ${activeTab === "orders" ? "text-[#B4182D] border-b-2 border-[#B4182D]" : "text-[#181A2F]/50 hover:text-[#181A2F]"}`}
-                        >
-                            Transaction History
-                        </button>
                     </div>
                 </div>
 
                 {/* Render Component Based on Active Tab */}
                 {activeTab === "products" && <AdminProducts />}
                 {activeTab === "events" && <AdminEvents />}
-                {activeTab === "orders" && <AdminOrders />}
 
             </div>
         </main>
