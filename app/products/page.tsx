@@ -40,10 +40,10 @@ export default function ProductsPage() {
                         Stride Store
                     </p>
                     <h1 className="text-stride-base text-4xl md:text-5xl font-extrabold">
-                        Semua Produk
+                        Stride Official Gear
                     </h1>
                     <p className="text-stride-base/60 text-sm mt-1">
-                        Gear dari Stride
+                        High Quality Materials, Designed for Runners, Loved by All.
                     </p>
                 </div>
 
@@ -66,7 +66,7 @@ export default function ProductsPage() {
                 {/* Grid */}
                 {filtered.length === 0 ? (
                     <div className="text-center py-24 text-white/30 text-lg">
-                        Tidak ada produk ditemukan.
+                        No Products Available.
                     </div>
                 ) : (
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">

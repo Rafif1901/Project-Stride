@@ -34,13 +34,13 @@ export default function ProductCard({
                         {formatRupiah(product.price)}
                     </p>
                     {totalStock === 0 ? (
-                        <span className="text-red-400 text-xs font-bold uppercase">Habis</span>
+                        <span className="text-red-400 text-xs font-bold uppercase">Out of Stock</span>
                     ) : (
-                        <span className="text-stride-base/40 text-xs">{totalStock} tersisa</span>
+                        <span className="text-stride-base/40 text-xs">{totalStock} in Stock</span>
                     )}
                 </div>
                 <button className="mt-2 w-full py-2 border border-stride-peach text-stride-peach text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-stride-peach hover:text-white transition-colors duration-200">
-                    Lihat Produk
+                    See Details
                 </button>
             </div>
         </div>

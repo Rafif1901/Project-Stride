@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 import { Products, formatRupiah } from "./types";
 
 export default function ProductDetail({
@@ -12,6 +14,17 @@ export default function ProductDetail({
     const [qty, setQty] = useState(1);
     const [mainImage, setMainImage] = useState(product.images[0]);
     const [added, setAdded] = useState(false);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const t = setTimeout(() => setVisible(true), 10);
+        return () => clearTimeout(t);
+    }, []);
+
+    const handleClose = () => {
+        setVisible(false);
+        setTimeout(onClose, 250);
+    };
 
     const selectedStock = product.sizes.find((s) => s.size === selectedSize)?.stock ?? 0;
 
@@ -23,15 +36,19 @@ export default function ProductDetail({
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg--stride-base/70 backdrop-blur-sm px-4"
-            onClick={onClose}
+            className={`fixed inset-0 z-50 flex items-center justify-center px-4 transition-all duration-250 ${
+                visible ? "bg-black/50 backdrop-blur-sm" : "bg-black/0 backdrop-blur-none"
+            }`}
+            onClick={handleClose}
         >
             <div
-                className="relative bg-white border border-white/10 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl"
+                className={`relative bg-white border border-white/10 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl transition-all duration-250 ${
+                    visible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
+                }`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <button
-                    onClick={onClose}
+                    onClick={handleClose}
                     className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-stride-base/5 hover:bg-stride-base/10 flex items-center justify-center text-stride-base transition"
                 >
                     ✕
@@ -87,7 +104,7 @@ export default function ProductDetail({
                         {/* Size selector */}
                         <div className="flex flex-col gap-2">
                             <p className="text-stride-base text-sm font-bold uppercase tracking-widest">
-                                Pilih Ukuran
+                                Size
                                 {selectedSize && (
                                     <span className="ml-2 text-stride-peach normal-case font-semibold">
                                         — {selectedSize}{" "}
@@ -106,7 +123,7 @@ export default function ProductDetail({
                                             disabled={outOfStock}
                                             onClick={() => {
                                                 setSelectedSize(s.size);
-                                                setQty(1); // Reset qty saat ganti size
+                                                setQty(1);
                                             }}
                                             className={`min-w-[52px] px-3 py-2 rounded-lg border text-sm font-bold transition-all duration-200
                                                 ${outOfStock
@@ -153,14 +170,14 @@ export default function ProductDetail({
                                 disabled={!selectedSize || selectedStock === 0}
                                 className="flex-1 px-4 py-3 border border-stride-peach text-stride-peach rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-stride-peach/10 transition disabled:opacity-30 disabled:cursor-not-allowed"
                             >
-                                {added ? "✓ Masuk Keranjang" : "Masukkan Keranjang"}
+                                {added ? "✓ Product Added to Cart" : "Add to Cart"}
                             </button>
                             <button
                                 onClick={handleBuy}
                                 disabled={!selectedSize || selectedStock === 0}
                                 className="flex-1 px-4 py-3 bg-stride-peach hover:bg-orange-600 text-white rounded-xl font-extrabold text-sm uppercase tracking-widest transition disabled:opacity-30 disabled:cursor-not-allowed"
                             >
-                                Beli Sekarang
+                                Buy Now
                             </button>
                         </div>
                     </div>
