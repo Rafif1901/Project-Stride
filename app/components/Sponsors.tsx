@@ -8,6 +8,7 @@ const sponsors = [
     { src: "/heng.jpg", alt: "heng" },
     { src: "/ratgar.jpg", alt: "Ratgar" },
     { src: "/ingy.jpg", alt: "INgy" },
+    { src: "/mbip.jpg", alt: "mbip" }
 ];
 
 export default function SponsorsCarousel() {
