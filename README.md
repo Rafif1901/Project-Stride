@@ -30,7 +30,7 @@ Flowchart
 Clone this repository
 
 ```bash
-git clone [https://github.com/Rafif1901/Project-Stride.git]
+git clone https://github.com/Rafif1901/Project-Stride.git
 ```
 ## Frontend
 .....
